@@ -142,4 +142,117 @@ a {
   .header :is(.account, .nav) {
     display: none;
   }
+}
+.footer {
+  background: var(--color-DimGray, #665A4E);
+  padding-top: 1.5rem;
+  padding-bottom: 1.875rem;
+}
+.header .head {
+  margin-inline: auto;
+  max-width: var(--max-width);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px clamp(1.5rem, 1.40713rem + 0.381vw, 1.75rem);
+}
+.header .head .search {
+  position: relative;
+}
+.header .head .search .icon-search {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.header .nav-burger {
+  display: none;
+}
+.header .logo {
+  font-family: var(--font-clash);
+  font-size: 24px;
+  color: rgba(34, 32, 46, 0.7);
+}
+.header .account {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+}
+.nav .menu-items {
+  display: flex;
+  justify-content: space-between;
+  max-width: 32.5rem;
+  width: 100%;
+  margin: 20px 0;
+}
+.nav .menu-items .menu-item:hover .item__link {
+  color: var(--color-DimGray, #665A4E);
+}
+.nav .menu-items .menu-item:hover .item__link::after {
+  content: "";
+  width: 100%;
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 2px;
+  background-color: var(--color-DimGray, #665A4E);
+  transition: width 0.5s;
+}
+.nav .menu-items .item__link {
+  text-wrap: nowrap;
+  position: relative;
+}
+.nav .menu-items .item__link::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-SlateGray, #726E8D);
+  transition: width 0.5s;
+}
+.nav .menu-items .link-activ {
+  color: var(--color-SlateGray, #726E8D);
+}
+
+@media screen and (max-width: 575.98px) {
+  .header .head {
+    border-bottom: none;
+  }
+  .header .head .search {
+    display: none;
+  }
+  .header .nav-burger {
+    display: flex;
+    column-gap: 36px;
+  }
+  .header .nav-burger .menu-items {
+    display: none;
+  }
+  .header .nav-burger .search {
+    cursor: pointer;
+    display: block;
+  }
+  .header .nav-burger .search:hover .icon-search::before {
+    color: var(--color-DimGray, #665A4E);
+  }
+  .header .nav-burger .icon-menu {
+    display: block;
+    cursor: pointer;
+  }
+  .header .nav-burger .icon-menu:hover::before {
+    color: var(--color-DimGray, #665A4E);
+  }
+  .header :is(.account, .nav) {
+    display: none;
+  }
 }/*# sourceMappingURL=home-style.css.map */
