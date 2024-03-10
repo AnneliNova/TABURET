@@ -1,0 +1,18 @@
+body {
+    background: var(--color-white,  #ffffff);
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-DarkSlateGray, #22202E);
+}
+/* Basic Class*/
+.container {
+    margin-inline: auto;
+    max-width: var(--max-width);
+    box-sizing: border-box;
+    padding: 0 clamp(1.5rem, 0.20008rem + 5.333vw, 5rem);
+}
