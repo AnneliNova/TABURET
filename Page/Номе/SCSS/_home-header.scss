@@ -1,0 +1,139 @@
+.header {
+    display: fixed;
+    //!!! Подкорректировать прозрачность 
+    background: rgba(255, 255, 255, 0.5);
+
+    .head {
+        margin-inline: auto;
+        max-width: var(--max-width);
+        box-sizing: border-box;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 20px clamp(1.5rem, 1.40713rem + 0.381vw, 1.75rem);
+
+        .search {
+            position: relative;
+
+            .icon-search {
+                position: absolute;
+                top: 50%;
+                transform: translate(0, -50%);
+            }
+        }
+
+    }
+
+    .nav-burger {
+        display: none;
+    }
+
+    .logo {
+        font-family: var(--font-clash);
+        font-size: 24px; //24px
+        color: rgba(34, 32, 46, 0.7);
+    }
+
+    .account {
+        display: flex;
+        align-items: center;
+        gap: 1rem; //16px;
+    }
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+
+    .menu-items {
+        display: flex;
+        justify-content: space-between;
+        max-width: 32.5rem; // 520px;
+        width: 100%;
+        margin: 20px 0;
+
+        .menu-item {
+            &:hover .item__link {
+                color: var(--color-DimGray, #665A4E);
+
+                &::after {
+                    content: "";
+                    width: 100%;
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    bottom: -8px;
+                    height: 2px; // Высота линии
+                    background-color: var(--color-DimGray, #665A4E); // Цвет подчеркивания при появлении линии
+                    transition: width 0.5s; // Время эффекта
+                }
+            }
+        }
+
+        .item__link {
+            text-wrap: nowrap;
+            position: relative;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                right: 0;
+                bottom: -8px;
+                width: 0;
+                height: 2px; // Высота линии 
+                background-color: var(--color-SlateGray, #726E8D); //Цвет подчеркивания при исчезании линии
+                transition: width 0.5s; // Время эффекта
+            }
+        }
+
+        .link-activ {
+            color: var(--color-SlateGray, #726E8D);
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 575.98px) {
+    .header {
+        .head {
+            border-bottom: none;
+            .search {
+                display: none;
+            }
+        }
+
+        .nav-burger {
+            display: flex;
+            column-gap: 36px;
+
+            .menu-items {
+                display: none;
+            }
+
+            .search {
+                cursor: pointer;
+                display: block;
+                &:hover .icon-search::before {
+                    color: var(--color-DimGray, #665A4E);
+                }
+            }
+
+            .icon-menu {
+                display: block;
+                cursor: pointer;
+                &:hover::before {
+                    color: var(--color-DimGray, #665A4E);
+                }
+            }
+        }
+
+        :is(.account, .nav) {
+            display: none;
+        }
+    }
+}
